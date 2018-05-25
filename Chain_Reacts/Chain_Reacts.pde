@@ -19,6 +19,10 @@ void setup() {
 
 void draw() {
   background(0);
+  int c = 1;
+  if (zombieInfection){
+    c = 0;
+  }
   //iterates through the balls looking for growing/shrinking balls
   for (int i = 0; i < balls.length; i++) {
     if (balls[i].state == Ball.GROWING || balls[i].state == Ball.SHRINKING) {
@@ -31,7 +35,7 @@ void draw() {
     }
   }
   //updates the balls
-  for (int i = 0; i < balls.length; i ++) {
+  for (int i = c; i < balls.length; i ++) {
     balls[i].reDraw();
     balls[i].whatDo();
   }
